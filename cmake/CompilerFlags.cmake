@@ -1,0 +1,11 @@
+IF(MSVC)
+  SET(CMAKE_CXX_FLAGS_RELEASE "/MT /O2 /Ob2")
+  # /Z7 将pdb合并到库文件 /Zi 生成单独的pdb文件
+  SET(CMAKE_CXX_FLAGS_DEBUG "/MTd /Z7 /Ob0 /Od")
+  SET(CMAKE_CXX_FLAGS "/EHsc /wd\"4819\" /wd\"4996\"")
+ENDIF()
+
+IF(CMAKE_COMPILER_IS_GNUCXX)
+  SET(CMAKE_CXX_FLAGS "-std=c++11 -fPIC -Wall")
+  SET(CMAKE_CXX_FLAGS_DEBUG  "-O0 -g -ggdb")
+ENDIF()
